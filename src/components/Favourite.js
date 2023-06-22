@@ -1,5 +1,6 @@
+import { Alert } from "bootstrap";
 import { useNavigate } from "react-router-dom";
-export default function Coursemate(props) {
+export default function Favourite(props) {
   const navigate = useNavigate();
   return (
     <div className=" items-center flex-col flex p-3 m-4 w-[220px] h-[280px] bg-gray-200 shadow-xl rounded-lg">
@@ -14,11 +15,12 @@ export default function Coursemate(props) {
       </h1>
       <button
         onClick={() => {
-          props.addToFavourites(props.id);
+          props.removeFavourite(props.id);
+          navigate("/");
         }}
         className=" text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-3 rounded inline-flex items-center"
       >
-        <span>Add Favourite</span>
+        <span>Remove Favourite</span>
       </button>
     </div>
   );

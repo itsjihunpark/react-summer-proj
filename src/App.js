@@ -1,9 +1,9 @@
 import Navbar from "./components/Navbar";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, useNavigate } from "react-router-dom";
 import Coursemates from "./views/Coursemates";
 import Groups from "./views/Groups";
 import Favourites from "./views/Favourites";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 function App() {
   //this state array will need to be replaced by an API that will be provided by the mentors
   const [students, setStudents] = useState([
@@ -75,10 +75,33 @@ function App() {
   ]);
   const [favourites, setFavourites] = useState([]); //also will need to be persisted in the back end
   function addToFavourites(id) {
-    console.log(id);
-    let student = students[id - 1];
-    setFavourites([...favourites, student]);
+    let exists = false;
+    favourites.forEach((favourite) => {
+      if (id === favourite.id) {
+        exists = true;
+      }
+    });
+    if (!exists) {
+      console.log(id);
+      let student = students[id - 1];
+      setFavourites([...favourites, student]);
+    } else {
+      alert("Already added to favourites");
+    }
   }
+  function removeFavourite(id) {
+    let index;
+    const deletedList = favourites.map((favourite) => {
+      if (favourite.id === id) {
+        index = favourites.indexOf(favourite);
+      }
+      return favourite;
+    });
+    deletedList.splice(index, 1);
+    setFavourites(deletedList);
+    console.log(deletedList);
+  }
+
   return (
     <>
       <BrowserRouter>
@@ -96,7 +119,12 @@ function App() {
             <Route path="/groups" element={<Groups />} />
             <Route
               path="/favourites"
-              element={<Favourites favourites={favourites} />}
+              element={
+                <Favourites
+                  favourites={favourites}
+                  removeFavourite={removeFavourite}
+                />
+              }
             />
           </Routes>
         </Navbar>

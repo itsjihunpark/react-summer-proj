@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Coursemate from "../components/Coursemate";
+import Favourite from "../components/Favourite";
 import Searchbar from "../components/Searchbar";
 
 export default function Favourites(props) {
@@ -25,10 +25,11 @@ export default function Favourites(props) {
       <div className=" justify-start flex-wrap flex mx-[7%] ">
         {searchedFavourite.map((favourite) => {
           return (
-            <Coursemate
+            <Favourite
               name={favourite.name}
               id={favourite.id}
               img={favourite.img}
+              removeFavourite={props.removeFavourite}
             />
           );
         })}
