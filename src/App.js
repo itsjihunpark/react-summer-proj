@@ -90,6 +90,7 @@ function App() {
   function addToFavourites(id) {
     const updatedFavourites = students.map((student) => {
       if (id === student.id && student.favourite !== true) {
+        alert("Student added to favourites");
         return { ...student, favourite: true };
       } else if (id === student.id && student.favourite === true) {
         alert("You've already added this student to favourite");
