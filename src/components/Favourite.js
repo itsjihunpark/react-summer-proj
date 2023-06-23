@@ -1,4 +1,3 @@
-import { Alert } from "bootstrap";
 import { useNavigate } from "react-router-dom";
 export default function Favourite(props) {
   const navigate = useNavigate();
@@ -16,7 +15,6 @@ export default function Favourite(props) {
       <button
         onClick={() => {
           props.removeFavourite(props.id);
-          navigate("/");
         }}
         className=" text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-3 rounded inline-flex items-center"
       >

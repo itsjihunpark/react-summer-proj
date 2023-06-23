@@ -1,6 +1,4 @@
-import { useNavigate } from "react-router-dom";
 export default function Coursemate(props) {
-  const navigate = useNavigate();
   return (
     <div className=" items-center flex-col flex p-3 m-4 w-[220px] h-[280px] bg-gray-200 shadow-xl rounded-lg">
       <img

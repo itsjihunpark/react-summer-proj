@@ -11,95 +11,101 @@ function App() {
       id: 1,
       name: "Jihun Park",
       img: "https://images.pexels.com/photos/2709388/pexels-photo-2709388.jpeg",
+      favourite: false,
     },
     {
       id: 2,
       name: "George Carter",
       img: "https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg",
+      favourite: false,
     },
     {
       id: 3,
       name: "Camila Berg",
       img: "https://images.pexels.com/photos/2380794/pexels-photo-2380794.jpeg",
+      favourite: false,
     },
     {
       id: 4,
       name: "Adrian Wong",
       img: "https://images.pexels.com/photos/3460478/pexels-photo-3460478.jpeg",
+      favourite: false,
     },
     {
       id: 5,
       name: "Jihun Park",
       img: "https://images.pexels.com/photos/3008355/pexels-photo-3008355.jpeg",
+      favourite: false,
     },
     {
       id: 6,
       name: "George Carter",
       img: "https://images.pexels.com/photos/2110858/pexels-photo-2110858.jpeg",
+      favourite: false,
     },
     {
       id: 7,
       name: "Camila Berg",
       img: "https://images.pexels.com/photos/2586823/pexels-photo-2586823.jpeg",
+      favourite: false,
     },
     {
       id: 8,
       name: "Adrian Wong",
       img: "https://images.pexels.com/photos/5160850/pexels-photo-5160850.jpeg",
+      favourite: false,
     },
     {
       id: 9,
       name: "Jihun Park",
       img: "https://images.pexels.com/photos/1804514/pexels-photo-1804514.jpeg",
+      favourite: false,
     },
     {
       id: 10,
       name: "George Carter",
       img: "https://images.pexels.com/photos/2080322/pexels-photo-2080322.jpeg",
+      favourite: false,
     },
     {
       id: 11,
       name: "Camila Berg",
       img: "https://images.pexels.com/photos/2177013/pexels-photo-2177013.jpeg",
+      favourite: false,
     },
     {
       id: 12,
       name: "Adrian Wong",
       img: "https://images.pexels.com/photos/4684260/pexels-photo-4684260.jpeg",
+      favourite: false,
     },
     {
       id: 13,
       name: "Adrian Wong",
       img: "https://images.pexels.com/photos/4684260/pexels-photo-4684260.jpeg",
+      favourite: false,
     },
   ]);
-  const [favourites, setFavourites] = useState([]); //also will need to be persisted in the back end
+
   function addToFavourites(id) {
-    let exists = false;
-    favourites.forEach((favourite) => {
-      if (id === favourite.id) {
-        exists = true;
+    const updatedFavourites = students.map((student) => {
+      if (id === student.id && student.favourite !== true) {
+        return { ...student, favourite: true };
+      } else if (id === student.id && student.favourite === true) {
+        alert("You've already added this student to favourite");
       }
+      return student;
     });
-    if (!exists) {
-      console.log(id);
-      let student = students[id - 1];
-      setFavourites([...favourites, student]);
-    } else {
-      alert("Already added to favourites");
-    }
+    setStudents(updatedFavourites);
   }
   function removeFavourite(id) {
-    let index;
-    const deletedList = favourites.map((favourite) => {
-      if (favourite.id === id) {
-        index = favourites.indexOf(favourite);
+    const updatedFavourites = students.map((student) => {
+      if (id === student.id) {
+        return { ...student, favourite: false };
       }
-      return favourite;
+      return student;
     });
-    deletedList.splice(index, 1);
-    setFavourites(deletedList);
-    console.log(deletedList);
+    setStudents(updatedFavourites);
   }
 
   return (
@@ -121,7 +127,7 @@ function App() {
               path="/favourites"
               element={
                 <Favourites
-                  favourites={favourites}
+                  students={students}
                   removeFavourite={removeFavourite}
                 />
               }

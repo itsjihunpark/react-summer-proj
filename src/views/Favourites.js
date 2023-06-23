@@ -1,20 +1,8 @@
-import { useState } from "react";
 import Favourite from "../components/Favourite";
 import Searchbar from "../components/Searchbar";
 
 export default function Favourites(props) {
-  const [searchedFavourite, setSearchedFavourite] = useState(props.favourites);
-  function searchFavourite(search) {
-    if (search === "") {
-      setSearchedFavourite(props.favourites);
-    } else {
-      const filteredStudents = props.favourites.filter((student) => {
-        return student.name.toLowerCase().includes(search.toLowerCase());
-      });
-      setSearchedFavourite(filteredStudents);
-      console.log(filteredStudents);
-    }
-  }
+  function searchFavourite(search) {}
   return (
     <>
       <h1>Favourites components go here</h1>
@@ -23,15 +11,18 @@ export default function Favourites(props) {
       </h1>
       <Searchbar searchCoursemate={searchFavourite} />
       <div className=" justify-start flex-wrap flex mx-[7%] ">
-        {searchedFavourite.map((favourite) => {
-          return (
-            <Favourite
-              name={favourite.name}
-              id={favourite.id}
-              img={favourite.img}
-              removeFavourite={props.removeFavourite}
-            />
-          );
+        {props.students.map((student) => {
+          if (student.favourite === true) {
+            return (
+              <Favourite
+                name={student.name}
+                id={student.id}
+                img={student.img}
+                removeFavourite={props.removeFavourite}
+              />
+            );
+            return null;
+          }
         })}
       </div>
     </>
