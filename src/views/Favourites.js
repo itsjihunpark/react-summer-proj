@@ -21,7 +21,6 @@ export default function Favourites(props) {
                 removeFavourite={props.removeFavourite}
               />
             );
-            return null;
           }
         })}
       </div>

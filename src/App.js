@@ -1,9 +1,9 @@
 import Navbar from "./components/Navbar";
-import { Routes, Route, BrowserRouter, useNavigate } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Coursemates from "./views/Coursemates";
 import Groups from "./views/Groups";
 import Favourites from "./views/Favourites";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 function App() {
   //this state array will need to be replaced by an API that will be provided by the mentors
   const [students, setStudents] = useState([
