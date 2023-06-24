@@ -4,6 +4,7 @@ function App() {
   const [widgets, setWidgets] = useState([]);
   //event handlers
   function handleOnDrag(e, widgetType) {
+    const widget = { name: widgetType };
     e.dataTransfer.setData("widgetType", widgetType);
   }
   function handleOnDrop(e) {
