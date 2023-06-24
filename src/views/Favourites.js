@@ -1,15 +1,12 @@
 import Favourite from "../components/Favourite";
-import Searchbar from "../components/Searchbar";
 
 export default function Favourites(props) {
-  function searchFavourite(search) {}
   return (
     <>
       <h1>Favourites components go here</h1>
       <h1 className=" mt-5 text-center text-xl font-medium my-3 break-keep">
         Students in your fav list
       </h1>
-      <Searchbar searchCoursemate={searchFavourite} />
       <div className=" justify-start flex-wrap flex mx-[7%] ">
         {props.students.map((student) => {
           if (student.favourite === true) {
