@@ -1,11 +1,7 @@
 export default function Coursemate(props) {
   return (
     <div className="">
-      <img
-        className=" overflow-hidden w-[100%] h-[130px] rounded-lg my-2"
-        alt="Img of student"
-        src={props.img}
-      />
+      <img className=" " alt="Img of student" src={props.img} />
       <h1 className=" text-sm font-bold">{props.name}</h1>
       <h1 className="text-center text-sm">
         Lorem ipsum dolor sit amet, consectetur
