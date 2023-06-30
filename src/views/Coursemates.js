@@ -17,11 +17,9 @@ export default function Coursemates(props) {
 
   return (
     <>
-      <h1 className=" mt-5 text-center text-xl font-medium my-3 break-keep">
-        Students in your course
-      </h1>
+      <h1 className="">Students in your course</h1>
       <Searchbar searchCoursemate={searchCoursemate} />
-      <div className=" justify-start flex-wrap flex mx-[7%] ">
+      <div className="">
         {searchedStudent.map((student) => {
           return (
             <Coursemate
