@@ -1,4 +1,4 @@
-import Favourite from "../components/Favourite";
+import FavouriteCard from "../FavouriteCard";
 
 export default function Favourites(props) {
   return (
@@ -9,16 +9,14 @@ export default function Favourites(props) {
       </h1>
       <div className=" justify-start flex-wrap flex mx-[7%] ">
         {props.students.map((student) => {
-          if (student.favourite === true) {
-            return (
-              <Favourite
-                name={student.name}
-                id={student.id}
-                img={student.img}
-                removeFavourite={props.removeFavourite}
-              />
-            );
-          }
+          return student.favourite ? (
+            <FavouriteCard
+              name={student.name}
+              id={student.id}
+              img={student.img}
+              removeFavourite={props.removeFavourite}
+            />
+          ) : null;
         })}
       </div>
     </>

@@ -1,8 +1,9 @@
 import Searchbar from "../components/Searchbar";
-import Coursemate from "../components/Coursemate";
+import CoursemateCard from "../components/CoursemateCard";
 import { useState } from "react";
 export default function Coursemates(props) {
   const [searchedStudent, setSearchedStudent] = useState(props.students);
+
   function searchCoursemate(search) {
     if (search === "") {
       setSearchedStudent(props.students);
@@ -24,7 +25,7 @@ export default function Coursemates(props) {
       <div className=" justify-start flex-wrap flex mx-[7%] ">
         {searchedStudent.map((student) => {
           return (
-            <Coursemate
+            <CoursemateCard
               key={student.id}
               name={student.name}
               id={student.id}
