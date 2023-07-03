@@ -1,3 +1,4 @@
+import "../styles/card.scss";
 export default function Card(props) {
-  return <div className=" ">{props.children}</div>;
+  return <div className="card">{props.children}</div>;
 }
