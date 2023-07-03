@@ -1,8 +1,7 @@
-import Navbar from "./components/Navbar";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Coursemates from "./views/Coursemates";
-import Groups from "./views/Groups";
-import Favourites from "./views/Favourites";
+import Coursemates from "./components/views/Coursemates";
+import Groups from "./components/views/Groups";
+import Favourites from "./components/views/Favourites";
 import { useState } from "react";
 function App() {
   //this state array will need to be replaced by an API that will be provided by the mentors
@@ -112,29 +111,27 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Coursemates
-                  addToFavourites={addToFavourites}
-                  students={students}
-                />
-              }
-            />
-            <Route path="/groups" element={<Groups />} />
-            <Route
-              path="/favourites"
-              element={
-                <Favourites
-                  students={students}
-                  removeFavourite={removeFavourite}
-                />
-              }
-            />
-          </Routes>
-        </Navbar>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Coursemates
+                addToFavourites={addToFavourites}
+                students={students}
+              />
+            }
+          />
+          <Route path="/groups" element={<Groups />} />
+          <Route
+            path="/favourites"
+            element={
+              <Favourites
+                students={students}
+                removeFavourite={removeFavourite}
+              />
+            }
+          />
+        </Routes>
       </BrowserRouter>
     </>
   );

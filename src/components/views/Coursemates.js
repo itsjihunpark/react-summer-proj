@@ -1,5 +1,5 @@
-import Searchbar from "../components/Searchbar";
-import CoursemateCard from "../components/CoursemateCard";
+import Searchbar from "../Searchbar";
+import CoursemateCard from "../CoursemateCard";
 import { useState } from "react";
 export default function Coursemates(props) {
   const [searchedStudent, setSearchedStudent] = useState(props.students);
