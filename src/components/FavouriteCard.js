@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card from "./UI/Card";
 export default function FavouriteCard(props) {
   return (
     <Card>

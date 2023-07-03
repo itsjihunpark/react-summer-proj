@@ -3,6 +3,7 @@ import Coursemates from "./components/views/Coursemates";
 import Groups from "./components/views/Groups";
 import Favourites from "./components/views/Favourites";
 import { useState } from "react";
+import "./index.scss";
 function App() {
   //this state array will need to be replaced by an API that will be provided by the mentors
   const [students, setStudents] = useState([
