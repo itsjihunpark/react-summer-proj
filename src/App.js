@@ -2,6 +2,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Coursemates from "./components/views/Coursemates";
 import Groups from "./components/views/Groups";
 import Favourites from "./components/views/Favourites";
+import Footer from "./components/UI/Footer";
 import { useState } from "react";
 import "./index.scss";
 function App() {
@@ -134,6 +135,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import Searchbar from "../Searchbar";
+import View from "../UI/View";
 import CoursemateCard from "../CoursemateCard";
 import { useState } from "react";
 export default function Coursemates(props) {
@@ -17,7 +18,7 @@ export default function Coursemates(props) {
   }
 
   return (
-    <>
+    <View>
       <h1 className="">Students in your course</h1>
       <Searchbar searchCoursemate={searchCoursemate} />
       <div className="card-container">
@@ -33,6 +34,6 @@ export default function Coursemates(props) {
           );
         })}
       </div>
-    </>
+    </View>
   );
 }
