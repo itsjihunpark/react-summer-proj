@@ -3,6 +3,7 @@ import Coursemates from "./components/views/Coursemates";
 import Groups from "./components/views/Groups";
 import Favourites from "./components/views/Favourites";
 import Footer from "./components/UI/Footer";
+import NavigationBar from "./components/NavigationBar";
 import { useState } from "react";
 import "./index.scss";
 function App() {
@@ -113,29 +114,31 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Coursemates
-                addToFavourites={addToFavourites}
-                students={students}
-              />
-            }
-          />
-          <Route path="/groups" element={<Groups />} />
-          <Route
-            path="/favourites"
-            element={
-              <Favourites
-                students={students}
-                removeFavourite={removeFavourite}
-              />
-            }
-          />
-        </Routes>
+        <NavigationBar>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Coursemates
+                  addToFavourites={addToFavourites}
+                  students={students}
+                />
+              }
+            />
+            <Route path="/groups" element={<Groups />} />
+            <Route
+              path="/favourites"
+              element={
+                <Favourites
+                  students={students}
+                  removeFavourite={removeFavourite}
+                />
+              }
+            />
+          </Routes>
+          <Footer />
+        </NavigationBar>
       </BrowserRouter>
-      <Footer />
     </>
   );
 }

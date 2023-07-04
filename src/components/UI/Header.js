@@ -1,3 +1,7 @@
-export default function Header() {
-  return <div></div>;
+export default function Header(props) {
+  return (
+    <>
+      <div className="header">{props.children}</div>
+    </>
+  );
 }
