@@ -1,3 +1,6 @@
+AHHHHHH I'M MAKING SOME CHANGES TO THE FORKED REPOSITORY THAT IS FROM BASE REPOSITORY OF USER JIHUNPARK0
+Forgot to branch, so I've just made a branch and now that I've made a branch (danielaEdit) I will push
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
