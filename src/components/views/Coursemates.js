@@ -19,9 +19,12 @@ export default function Coursemates(props) {
 
   return (
     <View>
-      <h1 className="">Students in your course</h1>
-      <Searchbar searchCoursemate={searchCoursemate} />
-      <div className="card-container">
+      <div className="title">
+        <h1>Students in your course</h1>
+        <Searchbar searchCoursemate={searchCoursemate} />
+      </div>
+
+      <div className="card-container ">
         {searchedStudent.map((student) => {
           return (
             <CoursemateCard

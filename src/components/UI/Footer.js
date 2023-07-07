@@ -1,15 +1,8 @@
 import "../../global.scss";
-export default function Footer() {
+export default function Footer(props) {
   return (
     <>
-      <div className="footer">
-        <section>
-          <h1>Footer section part 1</h1>
-        </section>
-        <section>
-          <h1>Footer section part 2</h1>
-        </section>
-      </div>
+      <div className="footer">{props.children}</div>
     </>
   );
 }

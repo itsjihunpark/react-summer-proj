@@ -6,10 +6,10 @@ import Footer from "./components/UI/Footer";
 import NavigationBar from "./components/NavigationBar";
 import { useState, useEffect } from "react";
 import "./index.scss";
-function App() {
-  //this state array will need to be replaced by an API that will be provided by the mentors
 
+function App() {
   useEffect(() => {
+    //just need the api endpoint to get all students
     const url = "";
     fetch(url)
       .then((response) => {

@@ -1,5 +1,14 @@
 .view{
     padding: 2rem;
+    .title{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1{
+            margin-bottom: 10px;
+        }
+    }
+
 }
 .card-container{
     display: flex;
@@ -54,6 +63,7 @@
 }
 
 .navigation-bar{
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     border-bottom: 1px solid black;
