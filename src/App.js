@@ -4,10 +4,28 @@ import Groups from "./components/views/Groups";
 import Favourites from "./components/views/Favourites";
 import Footer from "./components/UI/Footer";
 import NavigationBar from "./components/NavigationBar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./index.scss";
 function App() {
   //this state array will need to be replaced by an API that will be provided by the mentors
+
+  useEffect(() => {
+    const url = "";
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Somethings gone wrong");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((e) => {
+        console.log("e", e);
+      });
+  });
+
   const [students, setStudents] = useState([
     {
       id: 1,
