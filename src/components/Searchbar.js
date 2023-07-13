@@ -6,13 +6,12 @@ export default function Searchbar(props) {
   return (
     <>
       <div>
-        <div className="">
-          <div className=""></div>
+        <div>
+          <div></div>
           <input
             type="text"
             name="name"
             id="name"
-            className=""
             placeholder="Try type a name?"
             onChange={(e) => {
               handleChange(e);
