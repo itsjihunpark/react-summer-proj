@@ -4,14 +4,18 @@ import CoursemateCard from "../CoursemateCard";
 import { useEffect, useState } from "react";
 export default function Coursemates(props) {
   const [students, setStudents] = useState();
-
+  const [favourites, setFavourites] = useState([]);
   function searchCoursemate(search) {}
   const url = "http://softwarehub.uk/unibase/api/users/modules/1";
+
   const get = async () => {
     const response = await fetch(url);
     const data = await response.json();
     setStudents(data);
   };
+
+  function addToFavourites(id) {}
+
   useEffect(() => {
     get();
   }, []);
@@ -31,6 +35,7 @@ export default function Coursemates(props) {
                     name={name}
                     id={student.UserID}
                     img={student.UserImageURL}
+                    addToFavourites={addToFavourites}
                   />
                 </>
               );
