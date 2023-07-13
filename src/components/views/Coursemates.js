@@ -1,41 +1,32 @@
 import Searchbar from "../Searchbar";
 import View from "../UI/View";
 import CoursemateCard from "../CoursemateCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function Coursemates(props) {
-  const [searchedStudent, setSearchedStudent] = useState(props.students);
+  const [students, setStudents] = useState();
 
-  function searchCoursemate(search) {
-    if (search === "") {
-      setSearchedStudent(props.students);
-    } else {
-      const filteredStudents = props.students.filter((student) => {
-        return student.name.toLowerCase().includes(search.toLowerCase());
-      });
-      setSearchedStudent(filteredStudents);
-      console.log(filteredStudents);
-    }
-  }
-
+  function searchCoursemate(search) {}
+  const url = "http://softwarehub.uk/unibase/api/users/modules/1";
+  const get = async () => {
+    const response = await fetch(url);
+    const data = await response.json();
+    setStudents(data);
+  };
+  useEffect(() => {
+    get();
+  }, []);
   return (
     <View>
       <div className="title">
         <h1>Students in your course</h1>
         <Searchbar searchCoursemate={searchCoursemate} />
       </div>
-
       <div className="card-container ">
-        {searchedStudent.map((student) => {
-          return (
-            <CoursemateCard
-              key={student.id}
-              name={student.name}
-              id={student.id}
-              img={student.img}
-              addToFavourites={props.addToFavourites}
-            />
-          );
-        })}
+        {students
+          ? students.map((student) => {
+              return <p>{student.UserFirstname}</p>;
+            })
+          : null}
       </div>
     </View>
   );

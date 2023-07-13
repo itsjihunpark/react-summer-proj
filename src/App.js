@@ -8,24 +8,7 @@ import { useState, useEffect } from "react";
 import "./index.scss";
 
 function App() {
-  useEffect(() => {
-    //just need the api endpoint to get all students
-    const url = "";
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Somethings gone wrong");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((e) => {
-        console.log("e", e);
-      });
-  });
-
+  /*
   const [students, setStudents] = useState([
     {
       id: 1,
@@ -106,53 +89,16 @@ function App() {
       favourite: false,
     },
   ]);
-
-  function addToFavourites(id) {
-    const updatedFavourites = students.map((student) => {
-      if (id === student.id && student.favourite !== true) {
-        alert("Student added to favourites");
-        return { ...student, favourite: true };
-      } else if (id === student.id && student.favourite === true) {
-        alert("You've already added this student to favourite");
-      }
-      return student;
-    });
-    setStudents(updatedFavourites);
-  }
-  function removeFavourite(id) {
-    const updatedFavourites = students.map((student) => {
-      if (id === student.id) {
-        return { ...student, favourite: false };
-      }
-      return student;
-    });
-    setStudents(updatedFavourites);
-  }
+*/
 
   return (
     <>
       <BrowserRouter>
         <NavigationBar>
           <Routes>
-            <Route
-              path="/"
-              element={
-                <Coursemates
-                  addToFavourites={addToFavourites}
-                  students={students}
-                />
-              }
-            />
+            <Route path="/" element={<Coursemates />} />
             <Route path="/groups" element={<Groups />} />
-            <Route
-              path="/favourites"
-              element={
-                <Favourites
-                  students={students}
-                  removeFavourite={removeFavourite}
-                />
-              }
-            />
+            <Route path="/favourites" element={<Favourites />} />
           </Routes>
           <Footer />
         </NavigationBar>
