@@ -24,7 +24,16 @@ export default function Coursemates(props) {
       <div className="card-container ">
         {students
           ? students.map((student) => {
-              return <p>{student.UserFirstname}</p>;
+              const name = student.UserFirstname + " " + student.UserLastname;
+              return (
+                <>
+                  <CoursemateCard
+                    name={name}
+                    id={student.UserID}
+                    img={student.UserImageURL}
+                  />
+                </>
+              );
             })
           : null}
       </div>
